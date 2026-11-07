@@ -10,9 +10,13 @@ crew=Crew(
     tasks=[research_task, write_task],
     process=Process.sequential, # Sequential execution of tasks
     memory=True, # Enable memory for the crew
-    cache=True, # Enable caching for the crew
-    max_rpm=100,
-    share_crew=True
+    embedder={
+        "provider":"ollama",
+        "config":{
+            "model_name":"nomic-embed-text",
+            "url":"http://localhost:11434/api/embeddings",
+        },
+    },
 )
 
 
